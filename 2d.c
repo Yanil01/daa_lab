@@ -7,29 +7,35 @@ void printSubArray(int a[], int low, int high)
 {
     int i;
     step_count++;
+
     printf("[");
     for (i = low; i <= high; i++)
     {
         printf("%d ", a[i]);
     }
     printf("]\n");
+
     step_count++;
 }
 
 int Partition(int a[], int low, int high)
 {
     step_count++;
+
     int pivot = a[low];
     step_count++;
+
     int i = low + 1;
     int j = high;
     step_count += 2;
+
     printf("\n Pivot = %d | Dividing: ", pivot);
     printSubArray(a, low, high);
 
     while (i <= j)
     {
         step_count++;
+
         while (i <= high && a[i] <= pivot)
         {
             step_count += 2;
@@ -52,22 +58,27 @@ int Partition(int a[], int low, int high)
             step_count += 3;
         }
     }
+
     int temp = a[low];
     a[low] = a[j];
     a[j] = temp;
     step_count += 3;
+
     return j;
 }
 
 void quicksort(int a[], int low, int high)
 {
     step_count++;
+
     if (low < high)
     {
         int pi = Partition(a, low, high);
         step_count++;
+
         printf("Left subarray: ");
         printSubArray(a, low, pi - 1);
+
         printf("Right subarray: ");
         printSubArray(a, pi + 1, high);
 
@@ -80,10 +91,12 @@ void PrintArray(int a[], int n)
 {
     int i;
     step_count++;
+
     for (i = 0; i < n; i++)
     {
         printf("%d ", a[i]);
     }
+
     step_count++;
     printf("\n");
 }
@@ -93,6 +106,7 @@ int main()
     int a[200], n, i;
     clock_t start_time, end_time;
     double total_time;
+
     step_count++;
 
     printf("How many array elements: ");
@@ -115,6 +129,7 @@ int main()
     end_time = clock();
 
     step_count++;
+
     printf("\nAfter sorting: \n");
     PrintArray(a, n);
 
